@@ -1,0 +1,16 @@
+schema-version: 1
+contributors:
+  - OakLoaf
+  - EVERYPLANET
+  - dfsek
+id: itemsadder-addon
+version: ${version}
+entrypoints:
+  - "com.dfsek.terraia.TerraItemsAdderAddon"
+depends:
+  structure-terrascript-loader: "1.+"
+website:
+  source: https://github.com/OakLoaf/TerraItemsAdderAddon
+  issues: https://github.com/OakLoaf/TerraItemsAdderAddon/issues
+  docs: https://github.com/OakLoaf/TerraItemsAdderAddon/blob/main/README.md
+license: GPLv3

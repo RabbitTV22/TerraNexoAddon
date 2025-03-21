@@ -1,16 +1,16 @@
 package com.dfsek.terraia;
 
-import com.dfsek.terra.api.structures.parser.lang.ImplementationArguments;
-import com.dfsek.terra.api.structures.parser.lang.Returnable;
-import com.dfsek.terra.api.structures.parser.lang.functions.Function;
-import com.dfsek.terra.api.structures.parser.lang.variables.Variable;
-import com.dfsek.terra.api.structures.script.TerraImplementationArguments;
-import com.dfsek.terra.api.structures.tokenizer.Position;
-import com.dfsek.terra.bukkit.world.BukkitAdapter;
+import com.dfsek.terra.addons.terrascript.parser.lang.ImplementationArguments;
+import com.dfsek.terra.addons.terrascript.parser.lang.Returnable;
+import com.dfsek.terra.addons.terrascript.parser.lang.Scope;
+import com.dfsek.terra.addons.terrascript.parser.lang.functions.Function;
+import com.dfsek.terra.addons.terrascript.script.TerraImplementationArguments;
+import com.dfsek.terra.addons.terrascript.tokenizer.Position;
+import com.dfsek.terra.api.util.vector.Vector3Int;
 import dev.lone.itemsadder.api.CustomBlock;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
-
-import java.util.Map;
+import org.bukkit.generator.WorldInfo;
 
 public class ItemsAdderFunction implements Function<Void> {
     private final Position position;
@@ -31,15 +31,21 @@ public class ItemsAdderFunction implements Function<Void> {
     }
 
     @Override
-    public Void apply(ImplementationArguments implementationArguments, Map<String, Variable<?>> map) {
-        Location location = BukkitAdapter.adapt(((TerraImplementationArguments) implementationArguments).getBuffer().getOrigin());
-        location.add(x.apply(implementationArguments, map).doubleValue(), y.apply(implementationArguments, map).doubleValue(), z.apply(implementationArguments, map).doubleValue());
-        CustomBlock customBlock = CustomBlock.getInstance(block.apply(implementationArguments, map));
-        if(customBlock != null) //not needed if you're sure the blocks exists.
-        {
-            //custom block
+    public Void apply(ImplementationArguments implementationArguments, Scope scope) {
+        TerraImplementationArguments terraImplArguments = (TerraImplementationArguments) implementationArguments;
+        Vector3Int position = terraImplArguments.getOrigin();
+        Location location = new Location(
+            Bukkit.getWorld(((WorldInfo) terraImplArguments.getWorld().getHandle()).getUID()),
+            position.getX() + x.apply(implementationArguments, scope).doubleValue(),
+            position.getY() + y.apply(implementationArguments, scope).doubleValue(),
+            position.getZ() + z.apply(implementationArguments, scope).doubleValue()
+        );
+
+        CustomBlock customBlock = CustomBlock.getInstance(block.apply(implementationArguments, scope));
+        if (customBlock != null) {
             customBlock.place(location);
         }
+
         return null;
     }
 

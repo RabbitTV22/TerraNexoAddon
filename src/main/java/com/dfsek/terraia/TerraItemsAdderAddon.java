@@ -9,8 +9,7 @@ import com.dfsek.terra.api.event.functional.FunctionalEventHandler;
 import com.dfsek.terra.api.inject.annotations.Inject;
 import com.dfsek.terra.api.registry.exception.DuplicateEntryException;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import org.slf4j.Logger;
 
 public class TerraItemsAdderAddon implements AddonInitializer {
     @Inject
@@ -30,7 +29,7 @@ public class TerraItemsAdderAddon implements AddonInitializer {
                 try {
                     event.getPack().getCheckedRegistry(FunctionBuilder.class).register(addon.key("itemsAdderBlock"), new ItemsAdderFunctionBuilder());
                 } catch(DuplicateEntryException e) {
-                    logger.log(Level.SEVERE, "Failed to inject ItemsAdder function!", e);
+                    logger.error("Failed to inject ItemsAdder function!", e);
                     return;
                 }
 

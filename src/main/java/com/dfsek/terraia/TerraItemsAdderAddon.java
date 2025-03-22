@@ -32,9 +32,6 @@ public class TerraItemsAdderAddon implements AddonInitializer {
                     return;
                 }
 
-                logger.info("Injected ItemsAdder function!");
-            });
-        logger.info("Done.");
                 logger.info("Registered ItemsAdder function!");
             })
     }

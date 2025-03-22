@@ -34,5 +34,6 @@ public class TerraItemsAdderAddon implements AddonInitializer {
 
                 logger.info("Registered ItemsAdder function!");
             })
+            .priority(90);
     }
 }

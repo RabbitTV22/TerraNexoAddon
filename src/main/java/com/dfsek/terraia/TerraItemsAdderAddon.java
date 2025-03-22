@@ -21,7 +21,6 @@ public class TerraItemsAdderAddon implements AddonInitializer {
 
     @Override
     public void initialize() {
-        logger.info("Registering events...");
         platform.getEventManager()
             .getHandler(FunctionalEventHandler.class)
             .register(addon, ConfigPackPreLoadEvent.class)
@@ -29,12 +28,14 @@ public class TerraItemsAdderAddon implements AddonInitializer {
                 try {
                     event.getPack().getCheckedRegistry(FunctionBuilder.class).register(addon.key("itemsAdderBlock"), new ItemsAdderFunctionBuilder());
                 } catch(DuplicateEntryException e) {
-                    logger.error("Failed to inject ItemsAdder function!", e);
+                    logger.error("Failed to register ItemsAdder function!", e);
                     return;
                 }
 
                 logger.info("Injected ItemsAdder function!");
             });
         logger.info("Done.");
+                logger.info("Registered ItemsAdder function!");
+            })
     }
 }

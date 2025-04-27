@@ -9,7 +9,7 @@ repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/") // Paper
     maven("https://repo.codemc.org/repository/maven-public/") // Terra
-    maven("https://maven.devs.beer/") // ItemsAdder
+    maven("https://repo.nexomc.com/releases") // Nexo
 }
 
 dependencies {
@@ -19,7 +19,7 @@ dependencies {
     compileOnly("com.dfsek.terra:manifest-addon-loader:1.0.0-BETA+fd6decc70")
     compileOnly("com.dfsek.terra:structure-terrascript-loader:1.2.0-BETA+fd6decc70")
 
-    compileOnly("dev.lone:api-itemsadder:4.0.9")
+    compileOnly("com.nexomc:nexo:1.1.0")
 }
 
 java {

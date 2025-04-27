@@ -3,10 +3,11 @@ contributors:
   - OakLoaf
   - EVERYPLANET
   - dfsek
-id: itemsadder-addon
+  - RabbitTV
+id: nexo-addon
 version: ${version}
 entrypoints:
-  - "com.dfsek.terraia.TerraItemsAdderAddon"
+  - "com.dfsek.terraia.TerraNexoAddon"
 depends:
   structure-terrascript-loader: "1.+"
 website:

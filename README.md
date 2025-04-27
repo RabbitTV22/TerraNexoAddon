@@ -7,7 +7,7 @@ Nexo block addon for Terra (adds a terrascript function)
 3. now you can use the NexoBlock() function in any terrascript file.
    The format is NexoBlock(x,y,z,"Nexo_block_id")
    
-> This addon is only for Nexo blocks, it will not work for spawning entities.
+> This addon is only for Nexo blocks, it will not work for spawning furniture.
 
 ## Credit
 This was initially a modified version of dfsek's [TerraMythicMobsAddon](https://github.com/PolyhedralDev/TerraMythicMobsAddon),

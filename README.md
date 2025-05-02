@@ -5,7 +5,7 @@ Nexo block addon for Terra (adds a terrascript function)
 1. Download or build this addon and place it in the addons folder of your Terra folder.
 2. Add "nexo-addon" to the "addons" key of the pack.yml of any packs you'd like to apply it to.
 3. now you can use the NexoBlock() function in any terrascript file.
-   The format is NexoBlock(x,y,z,"Nexo_block_id")
+   The format is nexoBlock(x,y,z,"Nexo_block_id")
    
 > This addon is only for Nexo blocks, it will not work for spawning furniture.
 

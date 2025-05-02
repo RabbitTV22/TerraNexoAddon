@@ -26,7 +26,7 @@ public class TerraNexoAddon implements AddonInitializer {
             .register(addon, ConfigPackPreLoadEvent.class)
             .then(event -> {
                 try {
-                    event.getPack().getCheckedRegistry(FunctionBuilder.class).register(addon.key("NexoBlock"), new NexoFunctionBuilder());
+                    event.getPack().getCheckedRegistry(FunctionBuilder.class).register(addon.key("nexoBlock"), new NexoFunctionBuilder());
                 } catch(DuplicateEntryException e) {
                     logger.error("Failed to register Nexo function!", e);
                     return;
